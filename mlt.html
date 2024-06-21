@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>数字猜谜游戏</h2>
+
+<p>我们已经选择了一个在1-100之间的数字，让我们看你需要多少次才能猜到吧!</p>
+
+<button onclick="playGame()">开始猜测</button>
+
+<script>
+var num = Math.ceil(Math.random() * 100);
+var guessCount = 0;
+
+function playGame() {
+    var userGuess = parseInt(prompt("请输入你猜的数字（1-100）"));
+    guessCount++;
+    if (userGuess > num) {
+        alert("猜大了，再试试！");
+        playGame();
+    } else if (userGuess < num) {
+        alert("猜小了，再试试！");
+        playGame();
+    } else if (userGuess == num) {
+        alert("恭喜你，猜对了！你总共尝试了" + guessCount + "次。");
+    } else {
+        alert("不是有效的数字，再试试！");
+        playGame();
+    }
+}
+</script>
+
+</body>
+</html>
